@@ -1,6 +1,8 @@
 # Gigapet BE
 
 ## The backend is deployed at: https://gigapets-be.herokuapp.com/
+## OR
+## If running locally: http://localhost:5000/
 
 ## Getting started
 
