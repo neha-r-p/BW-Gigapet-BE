@@ -1,7 +1,6 @@
 # Gigapet BE
 
 ## The backend is deployed at: https://gigapets-be.herokuapp.com/
-## OR
 ## If running locally: http://localhost:5000/
 
 ## Getting started
@@ -21,8 +20,7 @@ To get the server running locally:
 | POST   | `/api/auth/register` | all users      | Takes in a JSON with username and password. Responds with user ID, username, and hashed password.     |
 | POST   | `/api/auth/login`    | all users      | Generates and returns a token that will be used for all future calls that require authentication. |
 
-- POST (registration): /api/auth/register
-- POST (login): /api/auth/login
+
 - DEL (delete user by id): /api/auth/:id 
 - POST (add a new child): /api/:id/new-kid
 - GET (retrieve a list of children): /api/:id/kids
