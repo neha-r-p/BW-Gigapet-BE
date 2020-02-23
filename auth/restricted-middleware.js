@@ -7,13 +7,13 @@ module.exports = (req, res, next) => {
   if (token) {
     jwt.verify(token, secrets.jwtSecret, (error, decodedToken) => {
       if (error) {
-        res.status(401).json({ message: "GTFO" });
+        res.status(401).json({ message: "Wrong user." });
       } else {
         req.user = { username: decodedToken.username };
         next();
       }
     });
   } else {
-    res.status(400).json({ error: "You're an idiot" });
+    res.status(400).json({ error: "You need to be logged in." });
   }
 };

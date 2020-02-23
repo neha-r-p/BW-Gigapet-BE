@@ -17,8 +17,9 @@ To get the server running locally:
 
 | Method | Endpoint             | Access Control | Description                                                                                       |
 | ------ | -------------------- | -------------- | ------------------------------------------------------------------------------------------------- |
-| POST   | `/api/auth/register` | all users      | Takes in a JSON with username and password. Responds with user ID, username, and hashed password.     |
+| POST   | `/api/auth/register` | all users      | Takes in a JSON with username and password. Responds with user ID, username, and hashed password. |
 | POST   | `/api/auth/login`    | all users      | Generates and returns a token that will be used for all future calls that require authentication. |
+| DEL    | `/api/auth/:id`      | all users      | Deletes a user based on the user ID.                                                              |
 
 
 - DEL (delete user by id): /api/auth/:id 
