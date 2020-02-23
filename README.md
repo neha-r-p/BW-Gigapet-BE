@@ -1,6 +1,23 @@
 # Gigapet BE
 
-## User endpoints: https://gigapets-be.herokuapp.com/
+## The backend is deployed at: https://gigapets-be.herokuapp.com/
+
+## Getting started
+
+To get the server running locally:
+
+- Clone this repo
+- **npm install** to install all required dependencies
+- **npm run server** to start the local server
+
+## Endpoints
+
+#### Auth Routes
+
+| Method | Endpoint             | Access Control | Description                                                                                       |
+| ------ | -------------------- | -------------- | ------------------------------------------------------------------------------------------------- |
+| POST   | `/api/auth/register` | all users      | Takes in a JSON with username and password. Responds with user ID, username, and hashed password.     |
+| POST   | `/api/auth/login`    | all users      | Generates and returns a token that will be used for all future calls that require authentication. |
 
 - POST (registration): /api/auth/register
 - POST (login): /api/auth/login
