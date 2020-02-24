@@ -35,20 +35,8 @@ To get the server running locally:
 
 | Method | Endpoint             | Access Control | Description                                                                                       |
 | ------ | -------------------- | -------------- | ------------------------------------------------------------------------------------------------- |
-| POST   | `/api/auth/register` | all users      | Takes in a JSON with username and password. Responds with user ID, username, and hashed password. |
-| POST   | `/api/auth/login`    | all users      | Generates and returns a token that will be used for all future calls that require authentication. |
-| DEL    | `/api/auth/:id`      | all users      | Deletes a user based on the user ID.                                                              |
-
-
-- DEL (delete user by id): /api/auth/:id 
-- POST (add a new child): /api/:id/new-child
-- GET (retrieve a list of children): /api/:id/children
-- DEL (delete child by id): /api/child/:id
-- PUT (update a child by id): /api/child/:id
-
-- POST (add a new food entry to child by children id): 
-	/api/:id/new-entry
-- GET (get food entries by children id): /api/:id/entries
-- GET (entry by entry id): /api/entry/:id
-- DEL (delete entry by id): /api/entry/:id
-- PUT (update an entry by entry id): /api/entry/:id
+| POST   | `/api/:id/new-entry` | all users      | Takes in a JSON of children_id, date, meal, food, category, and servings, and adds a new food entry to child by children id  |
+| GET    | `/api/:id/entries`   | all users      | Returns a response of all entries based on children_id                                           |
+| GET    | `/api/entry/:id`     | all users      | Returns a response of entry based on entry_id                                                    |
+| DEL    | `/api/entry/:id`     | all users      | Deletes an entry based on the entry_id.                                                          |
+| PUT    | `/api/entry/:id`     | all users      | Updates an entry based on the entry_id.                                                          |
