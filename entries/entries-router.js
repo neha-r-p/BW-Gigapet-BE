@@ -2,7 +2,7 @@ const router = require("express").Router();
 const restricted = require("../auth/restricted-middleware.js")
 
 const Entries = require("./entries-model.js");
-const Kids = require("../kids/kids-model.js");
+const Children = require("../children/children-model.js");
 
 // Add new food entry
 router.post("/:id/new-entry", (req, res) => {
@@ -20,7 +20,7 @@ router.post("/:id/new-entry", (req, res) => {
 });
 
 // Get food entries for specified child of specified user
-router.get("/:id/entries", validateKidId, restricted, (req, res) => {
+router.get("/:id/entries", validateChildId, restricted, (req, res) => {
   const { id } = req.params;
 
   Entries.findEntries(id)
@@ -34,7 +34,7 @@ router.get("/:id/entries", validateKidId, restricted, (req, res) => {
 });
 
 // Get specific food entry
-router.get("/entry/:id", validateKidId, restricted, (req, res) => {
+router.get("/entry/:id", validateChildId, restricted, (req, res) => {
   const id = req.params.id;
 
   Entries.findEntryById(id)
@@ -89,12 +89,12 @@ router.put("/entry/:id", (req, res) => {
 
 //Custom Middleware
 
-function validateKidId(req, res, next) {
+function validateChildId(req, res, next) {
   const id = req.params.id;
 
-  Kids.findKidById(id)
-    .then(kid => {
-      if (kid) {
+  Children.findChildById(id)
+    .then(child => {
+      if (child) {
         next();
       } else {
         res.status(404).json({ error: "There is no spoon" });
@@ -102,7 +102,7 @@ function validateKidId(req, res, next) {
     })
     .catch(err => {
       console.log(err);
-      res.status(500).json({ error: "Could not retrieve kid" });
+      res.status(500).json({ error: "Could not retrieve child" });
     });
 }
 

@@ -6,7 +6,7 @@ exports.seed = function(knex) {
       // Inserts seed entries
       return knex("entries").insert([
         {
-          kids_id: 1,
+          children_id: 1,
           date: "09-25-2019",
           meal: "breakfast",
           food: "oatmeal",
@@ -14,7 +14,7 @@ exports.seed = function(knex) {
           servings: 1
         },
         {
-          kids_id: 1,
+          children_id: 1,
           date: "09-25-2019",
           meal: "breakfast",
           food: "banana",
@@ -22,7 +22,7 @@ exports.seed = function(knex) {
           servings: 1
         },
         {
-          kids_id: 1,
+          children_id: 1,
           date: "09-25-2019",
           meal: "snack",
           food: "grapes",
@@ -30,7 +30,7 @@ exports.seed = function(knex) {
           servings: 1
         },
         {
-          kids_id: 2,
+          children_id: 2,
           date: "09-25-2019",
           meal: "breakfast",
           food: "eggs",
@@ -38,7 +38,7 @@ exports.seed = function(knex) {
           servings: 2
         },
         {
-          kids_id: 2,
+          children_id: 2,
           date: "09-25-2019",
           meal: "lunch",
           food: "rice",
@@ -46,7 +46,7 @@ exports.seed = function(knex) {
           servings: 1
         },
         {
-          kids_id: 3,
+          children_id: 3,
           date: "09-25-2019",
           meal: "breakfast",
           food: "oatmeal",
@@ -54,7 +54,7 @@ exports.seed = function(knex) {
           servings: 1
         },
         {
-          kids_id: 3,
+          children_id: 3,
           date: "09-25-2019",
           meal: "lunch",
           food: "potatoes",
@@ -62,7 +62,7 @@ exports.seed = function(knex) {
           servings: 1
         },
         {
-          kids_id: 4,
+          children_id: 4,
           date: "09-25-2019",
           meal: "breakfast",
           food: "oranges",
@@ -70,7 +70,7 @@ exports.seed = function(knex) {
           servings: 1
         },
         {
-          kids_id: 4,
+          children_id: 4,
           date: "09-25-2019",
           meal: "lunch",
           food: "lentils",
@@ -78,7 +78,7 @@ exports.seed = function(knex) {
           servings: 2
         },
         {
-          kids_id: 5,
+          children_id: 5,
           date: "09-25-2019",
           meal: "lunch",
           food: "noodles",

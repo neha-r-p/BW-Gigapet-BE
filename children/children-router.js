@@ -1,68 +1,68 @@
 const router = require("express").Router();
 const restricted = require("../auth/restricted-middleware");
 
-const Kids = require("../kids/kids-model.js");
+const Children = require("./children-model.js");
 const Users = require("../users/users-model.js");
 
 // Add new child to user(parent or guardian) account
-router.post("/:id/new-kid", (req, res) => {
-  let newKid = req.body;
+router.post("/:id/new-child", (req, res) => {
+  let newChild = req.body;
   let id = req.params.id;
 
-  Kids.addKids(id, newKid)
-    .then(kid => {
-      res.status(201).json(kid);
+  Children.addChildren(id, newChild)
+    .then(child => {
+      res.status(201).json(child);
     })
     .catch(err => {
       console.log(err);
-      res.status(500).json({ message: "Could not add new kid" });
+      res.status(500).json({ message: "Could not add new child" });
     });
 });
 
 // Retrieve all children for a specific user
-router.get("/:id/kids", validateParentId, (req, res) => {
+router.get("/:id/children", validateParentId, (req, res) => {
   const { id } = req.params;
-  console.log("Get kids", req.params);
-  Kids.findKids(id)
-    .then(kids => {
-      res.status(200).json(kids);
+  console.log("Get children", req.params);
+  Children.findChildren(id)
+    .then(children => {
+      res.status(200).json(children);
     })
     .catch(err => {
       console.log(err);
-      res.status(500).json({ error: "Could not find kids" });
+      res.status(500).json({ error: "Could not find children" });
     });
 });
 
 // Retrieve a specific child
-router.get("/kid/:id", restricted, (req, res) => {
+router.get("/child/:id", restricted, (req, res) => {
   const id = req.params.id;
-  //   console.log("kid", req.headers)
+  //   console.log("child", req.headers)
 
-  Kids.findKidById(id)
-    .then(kid => {
-      res.status(200).json(kid);
+  Children.findChildById(id)
+    .then(child => {
+      res.status(200).json(child);
     })
     .catch(err => {
-      console.log("findKidbyID", err);
-      res.status(500).json({ error: "Could not retrieve kid" });
+      console.log("findChildbyID", err);
+      res.status(500).json({ error: "Could not retrieve child" });
     });
 });
 
 // Delete a child from a user account
-router.delete("/kid/:id", restricted, (req, res) => {
+router.delete("/child/:id", restricted, (req, res) => {
 	const { id } = req.params;
   
-	Kids.remove(id)
+	Children.remove(id)
 	  .then(deleted => {
 		if (deleted) {
 		  res.json({ removed: deleted });
 		} else {
-		  res.status(404).json({ error: "No kid" });
+		  res.status(404).json({ error: "No child" });
 		}
 	  })
 	  .catch(err => {
 		console.log(err);
-		res.status(500).json({ error: "Could not delete kid" });
+		res.status(500).json({ error: "Could not delete child" });
 	  });
   });  
 
@@ -77,7 +77,7 @@ function validateParentId(req, res, next) {
       if (user) {
         next();
       } else {
-        res.status(404).json({ error: "This ain't yo kid" });
+        res.status(404).json({ error: "This ain't yo child" });
       }
     })
     .catch(err => {
