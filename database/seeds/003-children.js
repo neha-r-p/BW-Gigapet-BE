@@ -1,10 +1,10 @@
 
 exports.seed = function(knex) {
   // Deletes ALL existing entries
-  return knex('kids').del()
+  return knex('children').del()
     .then(function () {
       // Inserts seed entries
-      return knex('kids').insert([
+      return knex('children').insert([
         {users_id: 1, name: 'Hope', age: '1', weight: '23 lbs'},
         {users_id: 2, name: 'Ami', age: '35', weight: '123 lbs'},
         {users_id: 2, name: 'Neha', age: '32', weight: 'perfect'},

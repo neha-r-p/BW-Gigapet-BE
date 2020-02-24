@@ -8,17 +8,17 @@ module.exports = {
   updateEntry
 };
 
-function addEntry(kids_id, newEntry) {
+function addEntry(children_id, newEntry) {
   return db("entries as e")
-    .join("kids as k", "k.id", "e.kids_id")
-    .where("e.kids_id", kids_id)
+    .join("children as k", "k.id", "e.children_id")
+    .where("e.children_id", children_id)
     .insert(newEntry);
 };
 
 function findEntries(id) {
     return db('entries as e')
-        .join("kids as k", "k.id", "e.kids_id")
-        .where("kids_id", id)
+        .join("children as k", "k.id", "e.children_id")
+        .where("children_id", id)
         .then(entries => {
             return entries
         })

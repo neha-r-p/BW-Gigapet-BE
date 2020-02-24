@@ -11,8 +11,8 @@ exports.up = function(knex) {
       tbl.string("password", 128).notNullable();
     })
 
-    // Kids Table
-    .createTable("kids", tbl => {
+    // Children Table
+    .createTable("children", tbl => {
       tbl.increments();
 
       tbl.string("name", 128).notNullable();
@@ -33,11 +33,11 @@ exports.up = function(knex) {
       tbl.increments();
 
       tbl
-        .integer('kids_id')
+        .integer('children_id')
         .unsigned()
         .notNullable()
         .references('id')
-        .inTable('kids')
+        .inTable('children')
         .onUpdate('CASCADE')
         .onDelete('CASCADE')
       tbl.date("date").notNullable();
@@ -51,6 +51,6 @@ exports.up = function(knex) {
 exports.down = function(knex) {
   return knex.schema
     .dropTableIfExists("entries")
-    .dropTableIfExists("kids")
+    .dropTableIfExists("children")
     .dropTableIfExists("users");
 };
