@@ -45,6 +45,7 @@ To get the server running locally:
 - GET (retrieve a list of children): /api/:id/children
 - DEL (delete child by id): /api/child/:id
 - PUT (update a child by id): /api/child/:id
+
 - POST (add a new food entry to child by children id): 
 	/api/:id/new-entry
 - GET (get food entries by children id): /api/:id/entries
